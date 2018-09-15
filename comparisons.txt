@@ -1,0 +1,6 @@
+1. 10 random integers from 6-19:
+================================
+M: randperm(14,10)+5
+P: np.random.choice(range(6,19), 10, replace=False)
+
+
