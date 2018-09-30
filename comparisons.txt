@@ -4,4 +4,28 @@ M: randperm(14,10)+5
 P: import numpy as np
 P: np.random.choice(range(6,19), 10, replace=False)
 
+2. Construction of Hamiltonian matrix for this question: https://quantumcomputing.stackexchange.com/questions/4306/density-matrix-of-a-hamiltonian-function
+===========================================================================================================================================================
+M: function H = Hamiltonian(alpha,h) 
+M: x=[0  1;  1 0 ];
+M: y=[0 -1i; 1i 0];
+M: z=[1  0;  0 -1];
+M: I=eye(2);
+M: H = alpha*kron(kron(x,x),I)+...
+M:     alpha*kron(kron(y,y),I)+...
+M:     alpha*kron(kron(I,x),x)+...
+M:     alpha*kron(kron(I,y),y)+...
+M:     h*kron(kron(I,z),I);
 
+P: import numpy as np
+P: def Hamiltonian(alpha,h):
+P: x = np.array([[0,1],[1,0]])
+P: y = np.array([[0,-1j],[1j,0]])
+P: z = np.array([[1,0],[0,-1]])
+P: I = np.array([[1,0],[0,1]])
+P: H =  (alpha*np.kron(np.kron(Sx,Sx),I))
+P: H =+ (alpha*np.kron(np.kron(Sy,Sy),I))
+P: H =+ (alpha*np.kron(np.kron(I,Sx),Sx)) 
+P: H =+ (alpha*np.kron(np.kron(I,Sy),Sy))
+P: H =+ (h*np.kron(np.kron(I,Sz),I))
+P: return H
