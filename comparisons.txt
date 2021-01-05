@@ -15,7 +15,7 @@ M: H = alpha*kron(kron(x,x),I)+...
 M:     alpha*kron(kron(y,y),I)+...
 M:     alpha*kron(kron(I,x),x)+...
 M:     alpha*kron(kron(I,y),y)+...
-M:     h*kron(kron(I,z),I);
+M:     h*kron(kron(I,z),I)
 
 P: import numpy as np
 P: def Hamiltonian(alpha,h):
@@ -29,3 +29,14 @@ P: H =+ (alpha*np.kron(np.kron(I,Sx),Sx))
 P: H =+ (alpha*np.kron(np.kron(I,Sy),Sy))
 P: H =+ (h*np.kron(np.kron(I,Sz),I))
 P: return H
+
+3. Multiplication of two matrices
+===========================================================================================================================================================
+M: x=[0  1;  1 0 ];
+M: z=[1  0;  0 -1];
+M: x*z
+
+P: import numpy as np
+P: x = np.array([[0,1],[1,0]])
+P: z = np.array([[1,0],[0,-1]])
+P: np.matmul(x,z)
