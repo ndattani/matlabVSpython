@@ -45,3 +45,4 @@ P: np.matmul(x,z)
 ===========================================================================================================================================================
 M: roots=[1 0 1 0]; G = rand(4,6).*(-1).^randi([0,1],4,6);
 M: are_we_in_J1 = (sum(sum(roots'.*(G>0)))>0 + sum(sum((1-roots)'.*(G>0),2)>nnz(roots)))<1
+%% oops! This doesn't work for the case described here: https://github.com/HPQC-LABS/Optimal_Branching_Systems/blob/main/J1.m but can easily be fixed.
