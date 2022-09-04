@@ -40,3 +40,8 @@ P: import numpy as np
 P: x = np.array([[0,1],[1,0]])
 P: z = np.array([[1,0],[0,-1]])
 P: np.matmul(x,z)
+
+4. Given a weighted digraph G and specified roots, print 1 if there's 0 edges entering the roots and at most num(roots) edges entering the non-roots
+===========================================================================================================================================================
+M: roots=[1 0 1 0]; G = rand(4,6).*(-1).^randi([0,1],4,6);
+M: are_we_in_J1 = (sum(sum(roots'.*(G>0)))>0 + sum(sum((1-roots)'.*(G>0),2)>nnz(roots)))<1
