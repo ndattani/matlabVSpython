@@ -46,3 +46,16 @@ P: np.matmul(x,z)
 M: roots=[1 0 1 0]; G = rand(4,6).*(-1).^randi([0,1],4,6);
 M: are_we_in_J1 = (sum(sum(roots'.*(G>0)))>0 + sum(sum((1-roots)'.*(G>0),2)>nnz(roots)))<1
 %% oops! This doesn't work for the case described here: https://github.com/HPQC-LABS/Optimal_Branching_Systems/blob/main/J1.m but can easily be fixed.
+
+5. Code that Anant Gupta was using to calculate dihedral angles for molecules
+===========================================================================================================================================================
+M: v=[0 0 1];
+M: u=[1 0 0];
+M: rad2deg(acos(dot(u,v)))
+
+P: import numpy as np
+P: v = np.array([0,0,1]);
+P: u = np.array([1,0,0]);
+P: np.degrees(np.arccos(np.dot(u, v)))
+
+% Even Julia is worse than MATLAB/Octave because you need v=[0,0,1] and u=[1,0,0]
